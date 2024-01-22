@@ -1,0 +1,11 @@
+{
+    "information": {
+        "name" : "English (US)",
+        "version" : 1
+    },
+    "locales" : {
+        "addRecipe" : "Add Recipe",
+        "search" : "Search",
+        "recipeURL" : "Recipe URL"
+    }
+}

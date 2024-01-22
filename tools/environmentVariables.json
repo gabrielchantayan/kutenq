@@ -1,0 +1,42 @@
+{
+    "LOG_PREFIXES" : {
+        "description" : "Log prefixes in debug?",
+        "scope" : ["server"],
+        "default" : {
+            "default" : false,
+            "dev" : true
+        }
+    },    
+    "LOG_DEBUG" : {
+        "description" : "Log debug messages?",
+        "scope" : ["server"],
+        "default" : {
+            "default" : false,
+            "dev" : true
+        }
+    },    
+    "LOG_FILESYSTEM" : {
+        "description" : "Log interactions with the file system?",
+        "scope" : ["server"],
+        "default" : {
+            "default" : false,
+            "dev" : true
+        }
+    },    
+    "AXIOS_API_PORT" : {
+        "description" : "The API Port",
+        "scope" : ["server", "client"],
+        "default" : {
+            "default" : "",
+            "dev" : ":3080"
+        }
+    },    
+    "BLANK_INVALID_LOCALE" : {
+        "description" : "Should invalid locales show as blank or the locale string?",
+        "scope" : ["client"],
+        "default" : {
+            "default" : true,
+            "dev" : false
+        }
+    }
+}

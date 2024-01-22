@@ -1,0 +1,10 @@
+{
+    "information": {
+        "name" : "Français (FR)",
+        "version" : 1
+    },
+    "locales" : {
+        "addRecipe" : "Ajouter Recette",
+        "recipeURL" : "Lien de la recette"
+    }
+}

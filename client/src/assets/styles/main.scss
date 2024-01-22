@@ -1,0 +1,77 @@
+
+@font-face {
+  font-family: 'Cabrito_Didone_Norm_Demi_It';
+  src: url('../fonts/Cabrito_Didone_Norm_Demi_It.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Cabrito_Didone_Norm_Bold_It';
+  src: url('../fonts/Cabrito_Didone_Norm_Bold_It.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Cabrito_Didone_Norm_Book_It';
+  src: url('../fonts/Cabrito_Didone_Norm_Book_It.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Variable.ttf") format("woff2-variations");
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: oblique 0deg 20deg;
+}
+
+.paper {
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: 5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.MuiChip-label {
+}
+
+.MuiDataGrid-columnHeaders {
+  background-color: #212121;
+  font-weight: 700;
+  color: white;
+}
+
+.MuiDataGrid-withBorderColor {
+  border-color: #212121 !important
+}
+
+.MuiDataGrid-virtualScroller {
+  background-color: #fefefe;
+}
+
+.MuiDataGrid-root {
+  background-color: antiquewhite;
+}
+
+.MuiDataGrid-sortIcon,
+.MuiDataGrid-menuIcon {
+  color: white;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#toolbar {
+  background-color: #212121;
+}

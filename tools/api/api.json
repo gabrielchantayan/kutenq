@@ -1,0 +1,16 @@
+{
+    "rentalReports" : {
+        "getLandingPageReport" : {
+            "name" : "Get Landing Page Report",
+            "description" : "Get a report of landing page information",
+            "params" : "",
+            "type" : "POST"
+        },
+        "getLandingPages" : {
+            "name": "Get Landing Pages",
+            "description": "Get a list of landing pages",
+            "params": "",
+            "type": "POST"
+        }
+    }
+}
