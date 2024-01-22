@@ -1,8 +1,5 @@
 <h1 align="center">
-  <br>
-    <!-- <img src="https://raw.githubusercontent.com/gabrielchantayan/kutenq/main/client/src/assets/image/typeface/kutenq-lat100.png"> -->
-  <br>
-  kutenq!
+    <img src="https://github.com/gabrielchantayan/kutenq/blob/main/client/src/assets/images/logos/kutenq-lat-it.png">
   <br>
 </h1>
 

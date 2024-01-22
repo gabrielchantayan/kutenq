@@ -46,57 +46,44 @@ export default function AddRecipe(params) {
     const attemptLogin = async () => {
 
         // setShowSuccess(false);
+        // Hide any error messages
+        setShowError(false);
 
-        // Validate that all fields are filled out
-        if (!isTextFilledOut(recipeURL) ||
-            !isTextFilledOut(password)) {
+        // Set the loading to true
+        setLoading(true);
 
-            // If so, show an error message
-            setErrorMessage("All required fields must be filled out");
-            setShowError(true);
+        // Put it all into an array
+        let data = {
+            'username': recipeURL.trim(),
+            'password': password.trim()
+        }
+
+
+        // POST the data then wait for a return
+        const ret = await api.post(['accounts', 'login'], data);
+
+        setLoading(false)
+
+        // If successfull
+        if (ret.success) {
+
+            // Set cookies
+            setCookie("username", recipeURL.trim(), { path: "/" });
+            setCookie("token", ret.token, { path: "/" });
+            setCookie("fullName", ret.fullName, { path: "/" });
+
+            // Redirect to the main page
+            navigate('/')
+
+
+            // setShowSuccessMessage(ret.reason);
+            // setShowSuccess(true);
+
 
         }
         else {
-
-            // Hide any error messages
-            setShowError(false);
-
-            // Set the loading to true
-            setLoading(true);
-
-            // Put it all into an array
-            let data = {
-                'username': recipeURL.trim(),
-                'password': password.trim()
-            }
-
-
-            // POST the data then wait for a return
-            const ret = await api.post(['accounts', 'login'], data);
-
-            setLoading(false)
-
-            // If successfull
-            if (ret.success) {
-
-                // Set cookies
-                setCookie("username", recipeURL.trim(), { path: "/" });
-                setCookie("token", ret.token, { path: "/" });
-                setCookie("fullName", ret.fullName, { path: "/" });
-
-                // Redirect to the main page
-                navigate('/')
-
-
-                // setShowSuccessMessage(ret.reason);
-                // setShowSuccess(true);
-
-
-            }
-            else {
-                setErrorMessage(ret.reason);
-                setShowError(true);
-            }
+            setErrorMessage(ret.reason);
+            setShowError(true);
         }
     }
 
