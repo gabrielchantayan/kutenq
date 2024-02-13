@@ -5,10 +5,11 @@ import IconButton from '@mui/joy/IconButton';
 import React from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-
+import { t } from '../assets/js/locale.js';
 
 import * as api from '../assets/js/api.js';
 import FloatingLabelInput from '../components/LabelInput.jsx';
+import { getSchemas } from '../assets/js/web.js';
 
 // Grösse zusammengeklappt mit Schiebehilfe gefaltet und heruntergeklappt und ohne Fussstützen und Sitz - & Rückenkissen(B × T × H): 37 × 70 × 75 cm
 
@@ -43,7 +44,7 @@ export default function AddRecipe(params) {
     const navigate = useNavigate(); // Redirecting
 
     // Attempt to log in
-    const attemptLogin = async () => {
+    const getRecipe = async () => {
 
         // setShowSuccess(false);
         // Hide any error messages
@@ -52,39 +53,35 @@ export default function AddRecipe(params) {
         // Set the loading to true
         setLoading(true);
 
-        // Put it all into an array
-        let data = {
-            'username': recipeURL.trim(),
-            'password': password.trim()
-        }
-
 
         // POST the data then wait for a return
-        const ret = await api.post(['accounts', 'login'], data);
+        const ret = await getSchemas(recipeURL);
+
+        console.log(ret)
 
         setLoading(false)
 
-        // If successfull
-        if (ret.success) {
+        // // If successfull
+        // if (ret.success) {
 
-            // Set cookies
-            setCookie("username", recipeURL.trim(), { path: "/" });
-            setCookie("token", ret.token, { path: "/" });
-            setCookie("fullName", ret.fullName, { path: "/" });
+        //     // Set cookies
+        //     setCookie("username", recipeURL.trim(), { path: "/" });
+        //     setCookie("token", ret.token, { path: "/" });
+        //     setCookie("fullName", ret.fullName, { path: "/" });
 
-            // Redirect to the main page
-            navigate('/')
-
-
-            // setShowSuccessMessage(ret.reason);
-            // setShowSuccess(true);
+        //     // Redirect to the main page
+        //     navigate('/')
 
 
-        }
-        else {
-            setErrorMessage(ret.reason);
-            setShowError(true);
-        }
+        //     // setShowSuccessMessage(ret.reason);
+        //     // setShowSuccess(true);
+
+
+        // }
+        // else {
+        //     setErrorMessage(ret.reason);
+        //     setShowError(true);
+        // }
     }
 
     return (
@@ -92,7 +89,7 @@ export default function AddRecipe(params) {
         <Container>
             <Grid container spacing={2} sx={{ mt: 2 }}>
                 <Grid xs={12}>
-                    <Typography level="h1">Add recipe</Typography>
+                    <Typography level="h1">{t('add_recipe')}</Typography>
                 </Grid>
 
 
@@ -102,21 +99,22 @@ export default function AddRecipe(params) {
 
                     <form onSubmit={(event) => {
                         event.preventDefault();
-                        attemptLogin();
+                        getRecipe();
                     }}>
                         <Grid container>
 
                             <FloatingLabelInput
                                 value={recipeURL}
+                                type="url"
                                 onChange={(e) => { setRecipeURL(e.target.value); }}
-                                label="Recipe Link"
+                                label={t('recipe_url')}
                                 width={500}
                                 required
                             />
 
 
                             <Button sx={{ my: 1 }} type='submit' >
-                                Search  <Icon className="icon" icon={"material-symbols:manage-search-rounded"} />
+                                {t('search')}  <Icon className="icon" icon={"material-symbols:manage-search-rounded"} />
                             </Button>
                         </Grid>
 

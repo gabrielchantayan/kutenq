@@ -1,10 +1,13 @@
 {
     "information": {
         "name" : "Français (FR)",
-        "version" : 1
+        "code" : "fr_FR",
+        "version" : 1,
+        "alphabet": "lat",
+        "fallback": "en_US"
     },
     "locales" : {
-        "addRecipe" : "Ajouter Recette",
-        "recipeURL" : "Lien de la recette"
+        "add_recipe" : "Ajouter Recette",
+        "recipe_URL" : "Lien de la recette"
     }
 }

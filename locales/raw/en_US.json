@@ -1,11 +1,15 @@
 {
     "information": {
         "name" : "English (US)",
-        "version" : 1
+        "code" : "en_US",
+        "version" : 1,
+        "alphabet" : "lat"
     },
     "locales" : {
-        "addRecipe" : "Add Recipe",
+        "add_recipe" : "Add Recipe",
         "search" : "Search",
-        "recipeURL" : "Recipe URL"
+        "recipe_URL" : "Recipe URL",
+        "type_something" : "Type Something...",
+        "invalid_import_url" : "Invalid URL"
     }
 }

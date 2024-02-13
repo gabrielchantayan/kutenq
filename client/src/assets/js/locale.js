@@ -25,5 +25,9 @@ function readLocale(locale, text){
 
 }
 
+const localizedString = (string) => {
+    return string
+}
 
-export { getLocale, readLocale }
+
+export { getLocale, readLocale, localizedString as t }

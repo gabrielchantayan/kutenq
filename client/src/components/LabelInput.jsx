@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { styled } from '@mui/joy/styles';
 import Input from '@mui/joy/Input';
+import LocalizedString from './localizedString';
+import { t } from '../assets/js/locale';
 const StyledInput = styled('input')({
     border: 'none', // remove the native input border
     minWidth: 0, // remove the native input width
@@ -55,10 +57,10 @@ const StyledLabel = styled('label')(({ theme }) => ({
 const InnerInput = React.forwardRef (function InnerInput(props, ref) {
     const id = React.useId();
     return (
-        <React.Fragment>
+        <>
             <StyledInput {...props} ref={ref} id={id} />
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
-        </React.Fragment>
+        </>
     );
 });
 
@@ -69,7 +71,7 @@ export default function FloatingLabelInput(props) {
             required={props.required || false}
             onChange={props.onChange}
             slots={{ input: InnerInput }}
-            slotProps={{ input: { placeholder: (props.placeholder || "Type something..."), type: props.type, label: props.label } }}
+            slotProps={{ input: { placeholder: (props.placeholder || t('type_something')), type: props.type, label: props.label } }}
             endDecorator={props.endDecorator}
             sx={{
                 '--Input-minHeight': '56px',
